@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  service:
+    build: .
+    image: linkapi/service
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+      
+  redis:
+    image: redis:6-alpine
+    restart: unless-stopped
+    ports:
+      - 6379:6379
+
+  mongodb:
+    image: mongo:latest
+    restart: unless-stopped
+    environment:
+      - MONGODB_DATABASE='linkapi'
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+
+volumes:
+  mongodb_data_container:
+
