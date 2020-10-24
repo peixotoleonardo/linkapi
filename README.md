@@ -2,9 +2,9 @@
 Integração entre Pipedrive e Bling utilizando as tecnologias: NestJS, Typescript, MongoDB e Redis.
 
 ### Fluxo
-Ao criarmos um deal, o Pipedrive nos encaminha um webhook com o evento que aconteceu e os dados do deal,
-ao receber esse evento faço o encaminhamento para uma fila o qual faz a chamada do serviço resposável por
-percistir as informações no mongo e criar um deal no Bling caso o status do deal for won.
+Ao criarmos um deal, o Pipedrive nos encaminha um evento atraves do webhook com os dados do deal,
+ao receber esse evento ocorre o encaminhamento dos dados para uma fila, um consumer ao receber o evento faz a chamada do serviço resposável por
+persistir as informações no mongo e criar um deal no Bling caso o status do deal for won.
 
 ## Dependências
 + Node v.12
